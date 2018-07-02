@@ -1,19 +1,49 @@
 import React, {Component} from 'react';
 class ContactItem extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      sumCount: 0,
+      totalCount: 0,
+      doubleClickCount: 0
+    };
+  }
   render() {
-    const { login, name, department } = this.props
-    const imgUrl = `https://api.adorable.io/avatars/55/${login}.png`;
     return (
-      <li className="item">
-        <img src={imgUrl} className="ui mini rounded image" />
-        <div className="content">
-          <h4 className="header">{name}</h4>
-          <div className="description">{department}</div>
-          <button onClick={() => alert('Kliknięto!')}>Kliknij!</button>
+      <div>
+        <button onClick={this.increment.bind(this)}>+</button>
+        <div onDoubleClick={this.doubleClick.bind(this)}>
+          <output>Suma: {this.state.sumCount}</output>
+          <output>Kliknięcia: {this.state.totalCount}</output>
+          <output>Podwójne kliknięcia: {this.state.doubleClickCount}</output>
         </div>
-      </li>
+        <button onClick={this.decrement.bind(this)}>-</button>
+      </div>
     );
   }
+
+  increment() {
+    this.setState({
+      sumCount: this.state.sumCount + 1,
+      totalCount: this.state.totalCount + 1
+    })
+  }
+
+  decrement() {
+    this.setState({
+      sumCount: this.state.sumCount - 1,
+      totalCount: this.state.totalCount + 1
+    })
+  }
+
+  doubleClick() {
+    this.setState({
+      doubleClickCount: this.state.doubleClickCount+ 1
+    });
+  }
 }
+
+
+
 
 export default ContactItem;
