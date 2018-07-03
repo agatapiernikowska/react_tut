@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 class ContactItem extends React.Component {
   constructor() {
     super();
@@ -8,6 +9,7 @@ class ContactItem extends React.Component {
       doubleClickCount: 0
     };
   }
+
   render() {
     return (
       <div>
@@ -38,12 +40,9 @@ class ContactItem extends React.Component {
 
   doubleClick() {
     this.setState({
-      doubleClickCount: this.state.doubleClickCount+ 1
+      doubleClickCount: this.state.doubleClickCount + 1
     });
   }
 }
-
-
-
 
 export default ContactItem;
