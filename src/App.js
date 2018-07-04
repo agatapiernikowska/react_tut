@@ -3,6 +3,8 @@ import './App.css';
 import ContactItem from "./ContactItem";
 import NameForm from "./NameForm";
 import Date from "./Date";
+import UsersComponent from "./UsersComponent";
+
 
 
 class App extends Component {
@@ -13,6 +15,8 @@ class App extends Component {
         <ContactItem/>
         <NameForm/>
         <Date/>
+        <UsersComponent/>
+
       </div>
     );
   }
